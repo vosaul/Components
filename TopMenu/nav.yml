@@ -1,0 +1,41 @@
+- name: Home
+  path: /
+  section_id: home
+- name: SAMPLE REMINDER
+  path: /remainder
+  section_id: remainder
+- name: TUTORIAL
+  path: /tutorial
+  section_id: tutorial
+- name: pricing
+  section_id: pricing
+  children:
+    - image: "svg/upload-cloud.svg"
+      name: for businesses
+      path: /pricing
+    - image: "svg/trending-down.svg"
+      name: for medical providers
+      path: /hipaa-pricing/
+- name: FAQ'S
+  section_id: /faq
+  section_id: faq
+- name: about
+  children:
+    - image: "svg/cloud.svg"
+      name: HIPAA Compliance
+      path: /hipaa-compliance/
+    - image: "svg/award.svg"
+      name: Who Is It For?
+      path: /about/who-is-for/
+    - image: "svg/check-square.svg"
+      name: Testimonials
+      path: /testimonials/
+    - image: "svg/database.svg"
+      name: Leave Testimonial
+      path: /submit-testimonials/
+- name: blog
+  path: /blog
+  section_id: blog
+- name: SIGN IN
+  path: /#
+  section_id: sign_in

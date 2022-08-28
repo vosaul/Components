@@ -1,0 +1,62 @@
+<header class="header" id="nav_outer">
+  <div class="header__container">
+    <div class="header__logo">
+      <a href="/"><img src="/assets/images/logo-light.png" alt="logo" /></a>
+    </div>
+    <div class="toggler" id="menuToggler" onclick="toggleMenu()">
+      <div class="hamburger item">
+        <span></span>
+      </div>
+      <div class="times item active-burger"></div>
+    </div>
+
+    <nav id="nav" class="hidden_small">
+      <div class="navbar" id="myNavbar">
+        {% for item in site.data.nav %} 
+        {% if item.section_id == page.section_id %} 
+        {% assign active_class = "active_border" %} 
+        {% else %} 
+        {% assign active_class = "" %} 
+        {% endif %} 
+        {% if item.children %}
+        <div class="dropdown {{active_class}}">
+          <div class="dropbtn">
+            {{item.name}}
+            {%- include svg/bullet_down_white.svg -%}
+          </div>
+          <div class="dropdown-content">
+            <div class="row">
+              <div class="links">
+                <div class="links__items">
+                  {% for child in item.children %}
+                  <a href="{{child.path}}">
+                    {% assign icon = child.image %}
+                    {% include {{icon}} %} {{ child.name }}
+                  </a>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <a href="{{item.path}}" class="nav_link {{active_class}}">{{item.name}}</a>
+        {% endif %} 
+        {% endfor %}
+      </div>
+      <div class="header__buttons">
+        <a href="#" class="button__log">Log In</a>
+      </div> 
+    </nav>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.querySelectorAll("#menuToggler .item");
+  function toggleMenu() {
+    document.getElementById("nav").classList.toggle("hidden_small");
+    for (el of hamburger) {
+      el.classList.toggle("active-burger");
+    }
+  }
+</script>

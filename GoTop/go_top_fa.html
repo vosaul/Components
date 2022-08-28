@@ -1,0 +1,30 @@
+<div 
+id="GoTop" 
+title="Go to top" 
+style="display: none; position: fixed; bottom: 100px; right: 30px; cursor: pointer;"
+onclick="topFunction()"><i class="fa fa-fw fa-arrow-circle-up" style="width: max-content; font-size: 50px;   padding: 2px 5px; background: #fff; border-radius: 50%; color: #110e29;" aria-hidden="true"></i>
+</div>
+
+<script> 
+  //Get the button:
+  mybutton = document.getElementById("GoTop");
+
+  // When the user scrolls down 600px from the top of the document, show the button
+  window.onscroll = function () { 
+    console.log(document.body.scrollTop)
+    scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  } 
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+</script>
